@@ -15,14 +15,12 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfig {
     @Bean
     SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        // @formatter:off
         http
                 .authorizeExchange((authorize) -> authorize
                         .pathMatchers("/login").permitAll()  // 允许登录
                         .anyExchange().authenticated()
                 )
                 .httpBasic(withDefaults());
-        // @formatter:on
         return http.build();
     }
     @Bean
