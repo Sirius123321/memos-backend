@@ -14,7 +14,7 @@ spring:
         type: reactive
       database: "neo4j"
   neo4j:
-    uri: bolt://localhost:7687
+    uri: bolt://lgz.icebluesakura.xyz:7687
     authentication:
       username: neo4j
       password: password
