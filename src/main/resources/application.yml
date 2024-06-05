@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23limyATeDPBLssq8l
+            client-secret: 300a5dc6474cd545e61e503dd639378978f3e091
+  data:
+    neo4j:
+      repositories:
+        type: reactive
+      database: "neo4j"
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: neo4j
+      password: password
+jwt:
+  secret: mysecret
+  expiration: 864000000 # 10 days
