@@ -28,15 +28,15 @@ public class SecurityConfig {
     @Bean
     SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http
-//                .addFilterAt(jwtParseWebFilter,SecurityWebFiltersOrder.AUTHENTICATION)  // parse jwt token from http header
-//                .authenticationManager(jwtAuthenticationManager)
+                .addFilterAt(jwtParseWebFilter,SecurityWebFiltersOrder.AUTHENTICATION)  // parse jwt token from http header
+                .authenticationManager(jwtAuthenticationManager)
                 .authorizeExchange((authorize) -> authorize
 //                                .anyExchange().permitAll()  // test, permit all request
                         .anyExchange().authenticated()  // all exchange must have credentials, exclude specific endpoint before this line. e.g. pathMatchers("/endpoint").permitAll().
                 )
                 .httpBasic(withDefaults())  // HTTP Basic Authentication(RFC7617),string in http header: Authorization: Basic base64(username:password)
                 .exceptionHandling((exceptionHandling) ->exceptionHandling
-                        .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint("/token")));
+                        .authenticationEntryPoint(new RedirectServerAuthenticationEntryPoint("/api/user/token")));
         return http.build();
     }
 

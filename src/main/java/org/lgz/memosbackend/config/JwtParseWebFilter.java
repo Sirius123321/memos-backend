@@ -17,9 +17,7 @@ import reactor.core.publisher.Mono;
  */
 @Component
 public class JwtParseWebFilter implements WebFilter {
-
     private static final String BEARER_PREFIX = "Bearer ";
-
     @Override
     @Nonnull
     public Mono<Void> filter(@Nonnull ServerWebExchange exchange,@Nonnull WebFilterChain chain) {

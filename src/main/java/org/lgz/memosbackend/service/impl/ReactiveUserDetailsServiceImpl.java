@@ -15,13 +15,10 @@ import reactor.core.publisher.Mono;
 @Component
 public class ReactiveUserDetailsServiceImpl implements ReactiveUserDetailsService {
     private final UserRepository userRepository;
-
     @Autowired
     public ReactiveUserDetailsServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
-
     @Override
     public Mono<UserDetails> findByUsername(String username) { // when throw UsernameNotFoundException, spring security will return login failed
         return userRepository.findByUsername(username)
